@@ -16,10 +16,10 @@ fetch('http://andmebaas.stat.ee/sdmx-json/data/PA633/1+36+DBL97+DBL306+DBL425.3.
 
     data.structure.dimensions.observation[0].values.forEach((el, i) => {
         const occupationkey = (el.name.split(' ')[0])
-        const dataSetkey = i + ':0:0:0:0'
-        console.log(occupationkey)
-        console.log(i)
+        const dataSetkey = i + ':0:0:0:'
+        console.log(el.name.split(' ')[0])
         console.log(dataSetkey)
-
+        console.log(data.dataSets[0].observations[dataSetkey][0])
+        occupations[occupationkey].rate = data.dataSets[0].observations[dataSetkey][0]
     });
 })

@@ -14,7 +14,12 @@ fetch('http://andmebaas.stat.ee/sdmx-json/data/PA633/1+36+DBL97+DBL306+DBL425.3.
 .then(data=>{
     console.log(data)
 
-    data.structure.dimensions.observation[0].values.forEach(el => {
-        console.log(el.name.split(''))
+    data.structure.dimensions.observation[0].values.forEach((el, i) => {
+        const occupationkey = (el.name.split(' ')[0])
+        const dataSetkey = i + ':0:0:0:0'
+        console.log(occupationkey)
+        console.log(i)
+        console.log(dataSetkey)
+
     });
 })

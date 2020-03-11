@@ -10,7 +10,11 @@ let occupations ={
 const occupationSelect = document.getElementById('occupation-select')
 
 for (const key in occupations) {
-    console.log(occupations[key].name)
+    const option = document.createElement('option')
+    option.value = key
+    option.text = occupations[key].name
+    occupationSelect.append(option)
+    console.log(option)
 }
 
 fetch('http://andmebaas.stat.ee/sdmx-json/data/PA633/1+36+DBL97+DBL306+DBL425.3.1/all?startTime=2014&endTime=2014&dimensionAtObservation=allDimensions')

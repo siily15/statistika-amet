@@ -6,6 +6,13 @@ let occupations ={
     7115:{name: 'Puusepad', rate: 0}
     
 }
+
+const occupationSelect = document.getElementById('occupation-select')
+
+for (const key in occupations) {
+    console.log(occupations[key].name)
+}
+
 fetch('http://andmebaas.stat.ee/sdmx-json/data/PA633/1+36+DBL97+DBL306+DBL425.3.1/all?startTime=2014&endTime=2014&dimensionAtObservation=allDimensions')
 .then(Response =>{
     return Response.json()

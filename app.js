@@ -8,6 +8,7 @@ let occupations ={
 }
 
 const occupationSelect = document.getElementById('occupation-select')
+const salaryDiv = document.getElementById('salary')
 
 for (const key in occupations) {
     const option = document.createElement('option')
@@ -16,6 +17,13 @@ for (const key in occupations) {
     occupationSelect.append(option)
     console.log(option)
 }
+
+occupationSelect.addEventListener('change', () => {
+    if ( occupationSelect.value) {
+        salaryDiv.innerHTML = occupations[occupationSelect.value].rate
+    }
+})
+
 
 fetch('http://andmebaas.stat.ee/sdmx-json/data/PA633/1+36+DBL97+DBL306+DBL425.3.1/all?startTime=2014&endTime=2014&dimensionAtObservation=allDimensions')
 .then(Response =>{
